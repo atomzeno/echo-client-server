@@ -54,7 +54,9 @@ void recvThread(int cli_sd){
 		}
 	}
 	if(broadcast==true){
+		mut.lock();
 		client_fd.erase(cli_sd);
+		mut.unlock();
 	}
 	close(cli_sd);
 }
